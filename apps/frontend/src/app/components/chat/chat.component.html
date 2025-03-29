@@ -1,0 +1,12 @@
+<div class="chat-window">
+    <div class="messages">
+      <div *ngFor="let msg of history" [class.user]="msg.role === 'user'" [class.assistant]="msg.role === 'assistant'">
+        <strong *ngIf="msg.role === 'user'">👤:</strong>
+        <strong *ngIf="msg.role === 'assistant'">🤖:</strong>
+        {{ msg.content }}
+      </div>
+    </div>
+    <input [(ngModel)]="input" placeholder="Deine Nachricht" (keydown.enter)="send()"  />
+    <button (click)="send()">Senden</button>
+  </div>
+  
